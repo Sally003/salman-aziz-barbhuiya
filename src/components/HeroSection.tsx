@@ -1,87 +1,138 @@
-import { ArrowDown, Download, Mail, FolderOpen } from "lucide-react";
+import { ArrowDown, Download, Mail, FolderOpen, Sparkles } from "lucide-react";
 import profilePhoto from "@/assets/profile-photo.png";
 import DataBackground from "./DataBackground";
+
+const roles = ["Data Analyst", "Risk Analyst", "Python Developer"];
 
 const HeroSection = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <DataBackground />
 
-      <div className="section-container relative z-10 py-20">
-        <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+      {/* Radial gradient overlay */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(var(--primary)/0.08)_0%,_transparent_70%)] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none z-10" />
+
+      <div className="section-container relative z-10 py-24 md:py-32">
+        <div className="flex flex-col items-center text-center gap-8">
           {/* Profile Photo */}
-          <div className="flex-shrink-0 opacity-0 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-            <div className="relative">
-              <div className="w-44 h-44 md:w-56 md:h-56 rounded-full overflow-hidden border-2 border-primary/30 shadow-2xl shadow-primary/10">
+          <div className="opacity-0 animate-fade-in-up" style={{ animationDelay: "0.15s" }}>
+            <div className="relative group">
+              {/* Animated ring */}
+              <div className="absolute -inset-3 rounded-full border-2 border-dashed border-primary/20 animate-[spin_20s_linear_infinite]" />
+              <div className="absolute -inset-1.5 rounded-full bg-gradient-to-br from-primary/40 via-accent/30 to-primary/10 blur-sm group-hover:blur-md transition-all duration-500" />
+              <div className="relative w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden ring-2 ring-primary/30 ring-offset-2 ring-offset-background">
                 <img
                   src={profilePhoto}
                   alt="Salman Aziz Barbhuiya"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
-              <div className="absolute -inset-2 rounded-full border border-primary/10 animate-pulse-slow" />
+              {/* Status dot */}
+              <div className="absolute bottom-1 right-1 w-4 h-4 rounded-full bg-accent border-2 border-background shadow-lg shadow-accent/40" />
             </div>
           </div>
 
-          {/* Text */}
-          <div className="text-center md:text-left flex-1">
+          {/* Badge */}
+          <div
+            className="opacity-0 animate-fade-in-up"
+            style={{ animationDelay: "0.3s" }}
+          >
+            <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-mono font-medium bg-primary/10 text-primary border border-primary/20 backdrop-blur-sm">
+              <Sparkles size={12} className="text-accent" />
+              Open to Opportunities
+            </span>
+          </div>
+
+          {/* Name */}
+          <div className="space-y-2">
             <p
-              className="text-sm font-mono text-primary mb-3 opacity-0 animate-fade-in-up"
-              style={{ animationDelay: "0.3s" }}
+              className="text-sm font-mono text-muted-foreground tracking-widest uppercase opacity-0 animate-fade-in-up"
+              style={{ animationDelay: "0.35s" }}
             >
               Hello, I'm
             </p>
             <h1
-              className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-4 opacity-0 animate-fade-in-up"
-              style={{ animationDelay: "0.4s" }}
+              className="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-[1.05] tracking-tight opacity-0 animate-fade-in-up"
+              style={{ animationDelay: "0.45s" }}
             >
               Salman Aziz
               <br />
               <span className="gradient-text">Barbhuiya</span>
             </h1>
-            <p
-              className="text-lg md:text-xl text-muted-foreground font-medium mb-2 opacity-0 animate-fade-in-up"
-              style={{ animationDelay: "0.5s" }}
-            >
-              Data Analyst · Risk Analyst · Python Developer
-            </p>
-            <p
-              className="text-sm text-muted-foreground/70 mb-1 opacity-0 animate-fade-in-up"
-              style={{ animationDelay: "0.55s" }}
-            >
-              Machine Learning & Business Intelligence Enthusiast
-            </p>
-            <p
-              className="text-base text-muted-foreground max-w-xl mt-4 leading-relaxed opacity-0 animate-fade-in-up"
-              style={{ animationDelay: "0.6s" }}
-            >
-              Computer Science & Engineering graduate with strong analytical expertise.
-              Experienced in data-driven decision-making, fraud detection, and ML-based
-              automation — focused on improving system efficiency and reducing manual errors.
-            </p>
+          </div>
 
-            {/* CTA */}
-            <div
-              className="flex flex-wrap gap-3 mt-8 justify-center md:justify-start opacity-0 animate-fade-in-up"
-              style={{ animationDelay: "0.7s" }}
-            >
-              <a href="#projects" className="btn-hero-primary">
-                <FolderOpen size={18} /> View Projects
-              </a>
-              <a href="#contact" className="btn-hero-outline">
-                <Mail size={18} /> Contact Me
-              </a>
-              <a href="#" className="btn-hero-outline">
-                <Download size={18} /> Resume
-              </a>
-            </div>
+          {/* Roles as pills */}
+          <div
+            className="flex flex-wrap justify-center gap-2 opacity-0 animate-fade-in-up"
+            style={{ animationDelay: "0.55s" }}
+          >
+            {roles.map((role) => (
+              <span
+                key={role}
+                className="px-4 py-1.5 rounded-md bg-secondary/80 text-secondary-foreground text-sm font-medium border border-border/60 backdrop-blur-sm"
+              >
+                {role}
+              </span>
+            ))}
+          </div>
+
+          {/* Subtitle */}
+          <p
+            className="text-sm text-muted-foreground/60 font-mono opacity-0 animate-fade-in-up"
+            style={{ animationDelay: "0.6s" }}
+          >
+            Machine Learning &amp; Business Intelligence Enthusiast
+          </p>
+
+          {/* Description */}
+          <p
+            className="text-base md:text-lg text-muted-foreground max-w-2xl leading-relaxed opacity-0 animate-fade-in-up"
+            style={{ animationDelay: "0.65s" }}
+          >
+            CSE graduate with strong analytical expertise — experienced in
+            data-driven decision-making, fraud detection, and ML-based automation.
+          </p>
+
+          {/* CTA */}
+          <div
+            className="flex flex-wrap gap-3 justify-center opacity-0 animate-fade-in-up"
+            style={{ animationDelay: "0.75s" }}
+          >
+            <a href="#projects" className="btn-hero-primary group">
+              <FolderOpen size={18} className="transition-transform group-hover:-translate-y-0.5" /> View Projects
+            </a>
+            <a href="#contact" className="btn-hero-outline">
+              <Mail size={18} /> Contact Me
+            </a>
+            <a href="#" className="btn-hero-outline">
+              <Download size={18} /> Resume
+            </a>
+          </div>
+
+          {/* Stats row */}
+          <div
+            className="flex items-center gap-8 md:gap-12 mt-4 opacity-0 animate-fade-in-up"
+            style={{ animationDelay: "0.9s" }}
+          >
+            {[
+              { value: "1+", label: "Years Exp." },
+              { value: "6+", label: "Projects" },
+              { value: "3", label: "Internships" },
+            ].map((stat) => (
+              <div key={stat.label} className="text-center">
+                <p className="text-2xl md:text-3xl font-bold gradient-text">{stat.value}</p>
+                <p className="text-xs text-muted-foreground/60 mt-0.5">{stat.label}</p>
+              </div>
+            ))}
           </div>
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-0 animate-fade-in" style={{ animationDelay: "1.2s" }}>
-          <a href="#about" className="text-muted-foreground/50 hover:text-primary transition-colors">
-            <ArrowDown size={20} className="animate-bounce" />
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 opacity-0 animate-fade-in" style={{ animationDelay: "1.3s" }}>
+          <a href="#about" className="flex flex-col items-center gap-1 text-muted-foreground/40 hover:text-primary transition-colors">
+            <span className="text-[10px] font-mono tracking-widest uppercase">Scroll</span>
+            <ArrowDown size={16} className="animate-bounce" />
           </a>
         </div>
       </div>
