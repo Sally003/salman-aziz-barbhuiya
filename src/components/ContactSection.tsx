@@ -33,7 +33,7 @@ const ContactSection = () => {
             <div className="space-y-4">
               {[
                 { icon: Mail, text: "salmanaziz.barbhuiya@gmail.com", href: "mailto:salmanaziz.barbhuiya@gmail.com" },
-                { icon: Phone, text: "+91 XXXXXXXXXX", href: "#" },
+                { icon: Phone, text: "+91 7577065730", href: "tel:+917577065730" },
                 { icon: Linkedin, text: "LinkedIn Profile", href: "https://linkedin.com/in/salmanaziz" },
                 { icon: MapPin, text: "Assam, India", href: "#" },
               ].map((item) => (
