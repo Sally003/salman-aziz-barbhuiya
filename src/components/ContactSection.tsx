@@ -1,15 +1,35 @@
 import { useState } from "react";
 import { Mail, Phone, MapPin, Linkedin, Send } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
+import emailjs from "@emailjs/browser";
 import AnimatedSection from "./AnimatedSection";
 
 const ContactSection = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [sending, setSending] = useState(false);
+  const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // placeholder – would integrate with backend
-    alert("Thank you for your message! I'll get back to you soon.");
-    setForm({ name: "", email: "", message: "" });
+    setSending(true);
+    try {
+      await emailjs.send(
+        "service_u9w9jw7",
+        "template_irq873m",
+        {
+          from_name: form.name,
+          from_email: form.email,
+          message: form.message,
+        },
+        "MrPw6MsIrx45LPWCZ"
+      );
+      toast({ title: "Message sent!", description: "I'll get back to you soon." });
+      setForm({ name: "", email: "", message: "" });
+    } catch {
+      toast({ title: "Failed to send", description: "Please try again later.", variant: "destructive" });
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -78,8 +98,8 @@ const ContactSection = () => {
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
                 className="w-full px-4 py-3 rounded-lg bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all text-sm resize-none"
               />
-              <button type="submit" className="btn-hero-primary w-full justify-center">
-                <Send size={18} /> Send Message
+              <button type="submit" disabled={sending} className="btn-hero-primary w-full justify-center">
+                <Send size={18} /> {sending ? "Sending..." : "Send Message"}
               </button>
             </form>
           </AnimatedSection>
