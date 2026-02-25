@@ -42,7 +42,7 @@ const DataBackground = () => {
             ctx.beginPath();
             ctx.moveTo(nodes[i].x, nodes[i].y);
             ctx.lineTo(nodes[j].x, nodes[j].y);
-            ctx.strokeStyle = `rgba(59, 130, 246, ${0.08 * (1 - dist / 150)})`;
+            ctx.strokeStyle = `rgba(99, 70, 230, ${0.1 * (1 - dist / 150)})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
@@ -53,7 +53,7 @@ const DataBackground = () => {
       nodes.forEach((n) => {
         ctx.beginPath();
         ctx.arc(n.x, n.y, 2, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(59, 130, 246, 0.3)";
+        ctx.fillStyle = "rgba(99, 70, 230, 0.25)";
         ctx.fill();
 
         n.x += n.vx;
