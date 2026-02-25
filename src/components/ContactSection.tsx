@@ -32,9 +32,9 @@ const ContactSection = () => {
 
             <div className="space-y-4">
               {[
-                { icon: Mail, text: "salmanaziz.barbhuiya@gmail.com", href: "mailto:salmanaziz.barbhuiya@gmail.com" },
+                { icon: Mail, text: "salmanwrk009@gmail.com", href: "mailto:salmanwrk009@gmail.com" },
                 { icon: Phone, text: "+91 7577065730", href: "tel:+917577065730" },
-                { icon: Linkedin, text: "LinkedIn Profile", href: "https://linkedin.com/in/salmanaziz" },
+                { icon: Linkedin, text: "LinkedIn Profile", href: "https://www.linkedin.com/in/salman-aziz-barbhuiya" },
                 { icon: MapPin, text: "Assam, India", href: "#" },
               ].map((item) => (
                 <a
