@@ -35,7 +35,7 @@ const ContactSection = () => {
                 { icon: Mail, text: "salmanwrk009@gmail.com", href: "mailto:salmanwrk009@gmail.com" },
                 { icon: Phone, text: "+91 7577065730", href: "tel:+917577065730" },
                 { icon: Linkedin, text: "LinkedIn Profile", href: "https://www.linkedin.com/in/salman-aziz-barbhuiya" },
-                { icon: MapPin, text: "Assam, India", href: "#" },
+                { icon: MapPin, text: "Bangalore, Karnataka, India", href: "#" },
               ].map((item) => (
                 <a
                   key={item.text}
