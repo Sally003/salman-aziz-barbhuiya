@@ -6,11 +6,12 @@ const roles = ["Data Analyst", "Risk Analyst", "Python Developer"];
 
 const HeroSection = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[hsl(250,50%,15%)] via-[hsl(260,45%,20%)] to-[hsl(220,50%,12%)] text-white">
       <DataBackground />
 
-      {/* Radial gradient overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(var(--primary)/0.08)_0%,_transparent_70%)] pointer-events-none" />
+      {/* Vibrant radial glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_hsl(250_80%_65%/0.25)_0%,_transparent_50%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_hsl(172_66%_45%/0.2)_0%,_transparent_50%)] pointer-events-none" />
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none z-10" />
 
       <div className="section-container relative z-10 py-24 md:py-32">
@@ -38,8 +39,8 @@ const HeroSection = () => {
             className="opacity-0 animate-fade-in-up"
             style={{ animationDelay: "0.3s" }}
           >
-            <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-mono font-medium bg-primary/10 text-primary border border-primary/20 backdrop-blur-sm">
-              <Sparkles size={12} className="text-accent" />
+            <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-mono font-medium bg-white/10 text-emerald-300 border border-emerald-400/30 backdrop-blur-sm">
+              <Sparkles size={12} className="text-emerald-300" />
               Open to Opportunities
             </span>
           </div>
@@ -47,18 +48,18 @@ const HeroSection = () => {
           {/* Name */}
           <div className="space-y-2">
             <p
-              className="text-sm font-mono text-muted-foreground tracking-widest uppercase opacity-0 animate-fade-in-up"
+              className="text-sm font-mono text-white/50 tracking-widest uppercase opacity-0 animate-fade-in-up"
               style={{ animationDelay: "0.35s" }}
             >
               Hello, I'm
             </p>
             <h1
-              className="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-[1.05] tracking-tight opacity-0 animate-fade-in-up"
+              className="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-[1.05] tracking-tight opacity-0 animate-fade-in-up text-white"
               style={{ animationDelay: "0.45s" }}
             >
               Salman Aziz
               <br />
-              <span className="gradient-text">Barbhuiya</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-violet-400 via-purple-300 to-teal-300">Barbhuiya</span>
             </h1>
           </div>
 
@@ -70,7 +71,7 @@ const HeroSection = () => {
             {roles.map((role) => (
               <span
                 key={role}
-                className="px-4 py-1.5 rounded-md bg-secondary/80 text-secondary-foreground text-sm font-medium border border-border/60 backdrop-blur-sm"
+                className="px-4 py-1.5 rounded-md bg-white/10 text-white/80 text-sm font-medium border border-white/10 backdrop-blur-sm"
               >
                 {role}
               </span>
@@ -79,7 +80,7 @@ const HeroSection = () => {
 
           {/* Subtitle */}
           <p
-            className="text-sm text-muted-foreground/60 font-mono opacity-0 animate-fade-in-up"
+            className="text-sm text-white/40 font-mono opacity-0 animate-fade-in-up"
             style={{ animationDelay: "0.6s" }}
           >
             Machine Learning &amp; Business Intelligence Enthusiast
@@ -87,7 +88,7 @@ const HeroSection = () => {
 
           {/* Description */}
           <p
-            className="text-base md:text-lg text-muted-foreground max-w-2xl leading-relaxed opacity-0 animate-fade-in-up"
+            className="text-base md:text-lg text-white/60 max-w-2xl leading-relaxed opacity-0 animate-fade-in-up"
             style={{ animationDelay: "0.65s" }}
           >
             CSE graduate with strong analytical expertise — experienced in
@@ -99,13 +100,13 @@ const HeroSection = () => {
             className="flex flex-wrap gap-3 justify-center opacity-0 animate-fade-in-up"
             style={{ animationDelay: "0.75s" }}
           >
-            <a href="#projects" className="btn-hero-primary group">
+            <a href="#projects" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 bg-gradient-to-r from-violet-500 to-purple-600 text-white hover:shadow-lg hover:shadow-violet-500/30 hover:scale-105 group">
               <FolderOpen size={18} className="transition-transform group-hover:-translate-y-0.5" /> View Projects
             </a>
-            <a href="#contact" className="btn-hero-outline">
+            <a href="#contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 border border-white/20 text-white hover:border-white/40 hover:bg-white/5 hover:scale-105">
               <Mail size={18} /> Contact Me
             </a>
-            <a href="#" className="btn-hero-outline">
+            <a href="#" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 border border-white/20 text-white hover:border-white/40 hover:bg-white/5 hover:scale-105">
               <Download size={18} /> Resume
             </a>
           </div>
@@ -121,8 +122,8 @@ const HeroSection = () => {
               { value: "3", label: "Internships" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
-                <p className="text-2xl md:text-3xl font-bold gradient-text">{stat.value}</p>
-                <p className="text-xs text-muted-foreground/60 mt-0.5">{stat.label}</p>
+                <p className="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-violet-400 to-teal-300">{stat.value}</p>
+                <p className="text-xs text-white/40 mt-0.5">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -130,7 +131,7 @@ const HeroSection = () => {
 
         {/* Scroll indicator */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 opacity-0 animate-fade-in" style={{ animationDelay: "1.3s" }}>
-          <a href="#about" className="flex flex-col items-center gap-1 text-muted-foreground/40 hover:text-primary transition-colors">
+          <a href="#about" className="flex flex-col items-center gap-1 text-white/30 hover:text-violet-300 transition-colors">
             <span className="text-[10px] font-mono tracking-widest uppercase">Scroll</span>
             <ArrowDown size={16} className="animate-bounce" />
           </a>
