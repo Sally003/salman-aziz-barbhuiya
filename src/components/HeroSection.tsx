@@ -33,9 +33,7 @@ Aziz Barbhuiya
 
             {/* Description */}
             <div className="opacity-0 animate-fade-in-up space-y-4" style={{ animationDelay: "0.45s" }}>
-              <p className="text-lg text-foreground font-medium">Data Analyst , {& Risk Specialist, based in India.
-
-              </p>
+              <p className="text-lg text-foreground font-medium">Data Analyst &amp; Risk Specialist, based in India.</p>
               <p className="text-sm text-muted-foreground leading-relaxed max-w-md">
                 CSE graduate with strong analytical expertise — experienced in
                 data-driven decision-making, fraud detection, and ML-based automation.
