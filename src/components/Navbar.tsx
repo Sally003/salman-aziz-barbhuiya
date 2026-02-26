@@ -28,8 +28,8 @@ const Navbar = () => {
       }`}
     >
       <div className="section-container flex items-center justify-between h-16">
-        <a href="#home" className="text-lg font-bold gradient-text">
-          SA<span className="text-foreground">B</span>
+        <a href="#home" className="text-lg font-display font-black text-primary">
+          SAB<span className="text-foreground">.</span>
         </a>
 
         {/* Desktop */}

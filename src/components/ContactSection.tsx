@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Mail, Phone, MapPin, Linkedin, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Send, ArrowRight } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import emailjs from "@emailjs/browser";
 import AnimatedSection from "./AnimatedSection";
@@ -33,22 +33,23 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="section-padding bg-card/30">
+    <section id="contact" className="section-padding border-t border-border">
       <div className="section-container">
-        <AnimatedSection>
-          <h2 className="text-3xl md:text-4xl font-bold mb-2">
-            Get in <span className="gradient-text">Touch</span>
-          </h2>
-          <div className="w-16 h-1 bg-primary rounded mb-12" />
-        </AnimatedSection>
-
-        <div className="grid md:grid-cols-2 gap-12">
-          {/* Info */}
-          <AnimatedSection className="space-y-6">
-            <p className="text-muted-foreground leading-relaxed">
-              I'm open to opportunities in Data Analytics, Risk Analysis, and Software Development.
-              Let's connect!
-            </p>
+        <div className="grid md:grid-cols-2 gap-16">
+          {/* Left — Info */}
+          <AnimatedSection className="space-y-8">
+            <div>
+              <span className="text-xs font-mono text-muted-foreground tracking-[0.2em] uppercase">— Contact</span>
+              <h2 className="font-display text-3xl md:text-4xl font-black mt-3">
+                Any Type Of Query
+                <br />
+                &amp; Discussion.
+              </h2>
+              <p className="text-sm text-muted-foreground mt-4 leading-relaxed max-w-sm">
+                I'm open to opportunities in Data Analytics, Risk Analysis, and Software Development.
+                Let's connect!
+              </p>
+            </div>
 
             <div className="space-y-4">
               {[
@@ -71,12 +72,12 @@ const ContactSection = () => {
             </div>
           </AnimatedSection>
 
-          {/* Form */}
+          {/* Right — Form */}
           <AnimatedSection delay={150}>
             <form onSubmit={handleSubmit} className="space-y-4">
               <input
                 type="text"
-                placeholder="Your Name"
+                placeholder="What's your name?"
                 required
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
@@ -84,14 +85,14 @@ const ContactSection = () => {
               />
               <input
                 type="email"
-                placeholder="Your Email"
+                placeholder="Your email"
                 required
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
                 className="w-full px-4 py-3 rounded-lg bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all text-sm"
               />
               <textarea
-                placeholder="Your Message"
+                placeholder="Tell me about your project..."
                 rows={5}
                 required
                 value={form.message}

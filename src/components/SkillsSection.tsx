@@ -31,13 +31,13 @@ const categories = [
 
 const SkillsSection = () => {
   return (
-    <section id="skills" className="section-padding">
+    <section id="skills" className="section-padding border-t border-border">
       <div className="section-container">
         <AnimatedSection>
-          <h2 className="text-3xl md:text-4xl font-bold mb-2">
-            Technical <span className="gradient-text">Skills</span>
+          <span className="text-xs font-mono text-muted-foreground tracking-[0.2em] uppercase">— Skills</span>
+          <h2 className="font-display text-3xl md:text-4xl font-black mt-3 mb-12">
+            Technical <span className="text-primary">Stack.</span>
           </h2>
-          <div className="w-16 h-1 bg-primary rounded mb-12" />
         </AnimatedSection>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
