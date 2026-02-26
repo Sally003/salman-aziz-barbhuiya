@@ -11,7 +11,7 @@ const DataBackground = () => {
 
     let animId: number;
     const nodes: { x: number; y: number; vx: number; vy: number }[] = [];
-    const nodeCount = 50;
+    const nodeCount = 40;
 
     const resize = () => {
       canvas.width = canvas.offsetWidth;
@@ -24,15 +24,14 @@ const DataBackground = () => {
       nodes.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.4,
-        vy: (Math.random() - 0.5) * 0.4,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
       });
     }
 
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // connections
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
           const dx = nodes[i].x - nodes[j].x;
@@ -42,18 +41,17 @@ const DataBackground = () => {
             ctx.beginPath();
             ctx.moveTo(nodes[i].x, nodes[i].y);
             ctx.lineTo(nodes[j].x, nodes[j].y);
-            ctx.strokeStyle = `rgba(99, 70, 230, ${0.1 * (1 - dist / 150)})`;
+            ctx.strokeStyle = `rgba(234, 179, 8, ${0.06 * (1 - dist / 150)})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
         }
       }
 
-      // nodes
       nodes.forEach((n) => {
         ctx.beginPath();
-        ctx.arc(n.x, n.y, 2, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(99, 70, 230, 0.25)";
+        ctx.arc(n.x, n.y, 1.5, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(234, 179, 8, 0.15)";
         ctx.fill();
 
         n.x += n.vx;

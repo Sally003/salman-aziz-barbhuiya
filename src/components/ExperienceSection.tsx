@@ -38,13 +38,13 @@ const experiences = [
 
 const ExperienceSection = () => {
   return (
-    <section id="experience" className="section-padding bg-card/30">
+    <section id="experience" className="section-padding bg-card/50">
       <div className="section-container">
         <AnimatedSection>
-          <h2 className="text-3xl md:text-4xl font-bold mb-2">
-            Work <span className="gradient-text">Experience</span>
+          <span className="text-xs font-mono text-muted-foreground tracking-[0.2em] uppercase">— Experience</span>
+          <h2 className="font-display text-3xl md:text-4xl font-black mt-3 mb-12">
+            Work <span className="text-primary">History.</span>
           </h2>
-          <div className="w-16 h-1 bg-primary rounded mb-12" />
         </AnimatedSection>
 
         <div className="relative pl-10 md:pl-14">

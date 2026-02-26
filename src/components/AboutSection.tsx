@@ -10,17 +10,16 @@ const metrics = [
 
 const AboutSection = () => {
   return (
-    <section id="about" className="section-padding relative">
+    <section id="about" className="section-padding border-t border-border">
       <div className="section-container">
         <AnimatedSection>
-          <h2 className="text-3xl md:text-4xl font-bold mb-2">
-            About <span className="gradient-text">Me</span>
+          <span className="text-xs font-mono text-muted-foreground tracking-[0.2em] uppercase">— About</span>
+          <h2 className="font-display text-3xl md:text-4xl font-black mt-3 mb-10">
+            Who I <span className="text-primary">Am.</span>
           </h2>
-          <div className="w-16 h-1 bg-primary rounded mb-10" />
         </AnimatedSection>
 
         <div className="grid md:grid-cols-2 gap-12">
-          {/* Left — text */}
           <AnimatedSection className="space-y-5">
             <div className="flex items-start gap-3 mb-4">
               <GraduationCap className="text-primary mt-1 flex-shrink-0" size={20} />
@@ -39,12 +38,11 @@ const AboutSection = () => {
 
             <p className="text-muted-foreground leading-relaxed">
               I specialize in <strong className="text-foreground">data-driven decision-making</strong>, customer behavior
-              analytics, fraud detection, risk mitigation, and ML-based automation. Continuously
-              expanding my expertise across computer science domains.
+              analytics, fraud detection, risk mitigation, and ML-based automation.
             </p>
 
             <div className="flex items-start gap-3 mt-4">
-              <Users className="text-accent mt-1 flex-shrink-0" size={20} />
+              <Users className="text-primary mt-1 flex-shrink-0" size={20} />
               <div>
                 <p className="text-foreground font-medium mb-1">Soft Skills</p>
                 <p className="text-muted-foreground text-sm">
@@ -54,7 +52,6 @@ const AboutSection = () => {
             </div>
           </AnimatedSection>
 
-          {/* Right — metrics */}
           <AnimatedSection className="grid grid-cols-2 gap-4">
             {metrics.map((m) => (
               <div key={m.label} className="card-elevated flex flex-col items-center text-center p-5">
