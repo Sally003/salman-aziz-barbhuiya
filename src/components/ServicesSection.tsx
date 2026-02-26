@@ -50,18 +50,18 @@ const ServicesSection = () => {
             <AnimatedSection
               key={s.title}
               delay={i * 100}
-              className="group p-6 rounded-lg bg-primary/10 border border-primary/20 hover:bg-primary hover:border-primary transition-all duration-300 cursor-default"
+              className="group relative p-6 rounded-lg bg-primary text-primary-foreground border border-primary transition-all duration-300 cursor-default hover:scale-[1.02] hover:shadow-xl hover:shadow-primary/20"
             >
-              <div className="w-12 h-12 rounded-lg bg-background/20 flex items-center justify-center mb-4 group-hover:bg-primary-foreground/20 transition-colors">
-                <s.icon size={22} className="text-primary group-hover:text-primary-foreground transition-colors" />
+              <div className="w-12 h-12 rounded-lg bg-primary-foreground/15 flex items-center justify-center mb-4">
+                <s.icon size={22} className="text-primary-foreground" />
               </div>
-              <h3 className="text-lg font-display font-bold text-foreground mb-1 group-hover:text-primary-foreground transition-colors">
+              <h3 className="text-lg font-display font-bold mb-1">
                 {s.title}
               </h3>
-              <p className="text-xs text-muted-foreground mb-3 group-hover:text-primary-foreground/70 transition-colors">
+              <p className="text-xs text-primary-foreground/60 mb-3">
                 {s.projects}
               </p>
-              <p className="text-sm text-muted-foreground leading-relaxed group-hover:text-primary-foreground/80 transition-colors">
+              <p className="text-sm text-primary-foreground/80 leading-relaxed">
                 {s.desc}
               </p>
             </AnimatedSection>
