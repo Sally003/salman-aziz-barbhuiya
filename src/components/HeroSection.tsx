@@ -24,7 +24,7 @@ const HeroSection = () => {
 
             {/* Name */}
             <div className="opacity-0 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
-              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-black leading-[1.05] tracking-tight">Salman
+              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-black leading-[1.05] tracking-tight">Salman 
 Aziz Barbhuiya
                 <br />
                 <span className="text-primary">Aziz.</span>
@@ -33,8 +33,8 @@ Aziz Barbhuiya
 
             {/* Description */}
             <div className="opacity-0 animate-fade-in-up space-y-4" style={{ animationDelay: "0.45s" }}>
-              <p className="text-lg text-foreground font-medium">
-                Data Analyst &amp; Risk Specialist, based in India.
+              <p className="text-lg text-foreground font-medium">Data Analyst , {& Risk Specialist, based in India.
+
               </p>
               <p className="text-sm text-muted-foreground leading-relaxed max-w-md">
                 CSE graduate with strong analytical expertise — experienced in
