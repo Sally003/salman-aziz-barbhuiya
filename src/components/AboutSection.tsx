@@ -2,11 +2,11 @@ import { GraduationCap, Target, Users, BarChart3 } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 
 const metrics = [
-  { label: "Projects Completed", value: "10+", icon: Target },
-  { label: "Fraud Detection Boost", value: "20%", icon: BarChart3 },
-  { label: "Error Reduction", value: "40%", icon: Target },
-  { label: "Automation Gain", value: "30%", icon: BarChart3 },
-];
+{ label: "Projects Completed", value: "10+", icon: Target },
+{ label: "Fraud Detection Boost", value: "20%", icon: BarChart3 },
+{ label: "Error Reduction", value: "40%", icon: Target },
+{ label: "Automation Gain", value: "30%", icon: BarChart3 }];
+
 
 const AboutSection = () => {
   return (
@@ -15,7 +15,7 @@ const AboutSection = () => {
         <AnimatedSection>
           <span className="text-xs font-mono text-muted-foreground tracking-[0.2em] uppercase">— About</span>
           <h2 className="font-display text-3xl md:text-4xl font-black mt-3 mb-10">
-            Who I <span className="text-primary">Am.</span>
+            Who I <span className="text-primary">Am</span>
           </h2>
         </AnimatedSection>
 
@@ -53,18 +53,18 @@ const AboutSection = () => {
           </AnimatedSection>
 
           <AnimatedSection className="grid grid-cols-2 gap-4">
-            {metrics.map((m) => (
-              <div key={m.label} className="card-elevated flex flex-col items-center text-center p-5">
+            {metrics.map((m) =>
+            <div key={m.label} className="card-elevated flex flex-col items-center text-center p-5">
                 <m.icon className="text-primary mb-3" size={24} />
                 <span className="metric-value">{m.value}</span>
                 <span className="text-xs text-muted-foreground mt-1">{m.label}</span>
               </div>
-            ))}
+            )}
           </AnimatedSection>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default AboutSection;

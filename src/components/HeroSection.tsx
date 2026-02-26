@@ -24,8 +24,8 @@ const HeroSection = () => {
 
             {/* Name */}
             <div className="opacity-0 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
-              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-black leading-[1.05] tracking-tight">
-                Salman
+              <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-black leading-[1.05] tracking-tight">Salman
+Aziz Barbhuiya
                 <br />
                 <span className="text-primary">Aziz.</span>
               </h1>
@@ -52,20 +52,20 @@ const HeroSection = () => {
             {/* Social icons */}
             <div className="flex items-center gap-4 opacity-0 animate-fade-in-up" style={{ animationDelay: "0.7s" }}>
               {[
-                { icon: Linkedin, href: "https://www.linkedin.com/in/salman-aziz-barbhuiya" },
-                { icon: Github, href: "#" },
-                { icon: Mail, href: "mailto:salmanwrk009@gmail.com" },
-              ].map((s, i) => (
-                <a
-                  key={i}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
+              { icon: Linkedin, href: "https://www.linkedin.com/in/salman-aziz-barbhuiya" },
+              { icon: Github, href: "#" },
+              { icon: Mail, href: "mailto:salmanwrk009@gmail.com" }].
+              map((s, i) =>
+              <a
+                key={i}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors">
+
                   <s.icon size={18} />
                 </a>
-              ))}
+              )}
             </div>
           </div>
 
@@ -77,8 +77,8 @@ const HeroSection = () => {
                 <img
                   src={profilePhoto}
                   alt="Salman Aziz Barbhuiya"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+
                 {/* Overlay gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
               </div>
@@ -89,19 +89,19 @@ const HeroSection = () => {
         {/* Stats row at bottom */}
         <div className="mt-20 pt-8 border-t border-border grid grid-cols-3 gap-8 opacity-0 animate-fade-in-up" style={{ animationDelay: "0.85s" }}>
           {[
-            { value: "1+", label: "Years of Experience." },
-            { value: "6+", label: "Projects Completed." },
-            { value: "3", label: "Internships Done." },
-          ].map((stat) => (
-            <div key={stat.label} className="flex items-baseline gap-3">
+          { value: "1+", label: "Years of Experience." },
+          { value: "6+", label: "Projects Completed." },
+          { value: "3", label: "Internships Done." }].
+          map((stat) =>
+          <div key={stat.label} className="flex items-baseline gap-3">
               <span className="text-3xl md:text-4xl font-display font-black text-primary">{stat.value}</span>
               <span className="text-xs text-muted-foreground">{stat.label}</span>
             </div>
-          ))}
+          )}
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default HeroSection;
