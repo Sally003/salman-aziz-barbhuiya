@@ -114,7 +114,7 @@ const ContactSection = () => {
         <AnimatedSection delay={200}>
           <div className="border-t border-border pt-12">
             <h3 className="font-display text-xl font-bold text-foreground mb-6">
-              Estimate your project?
+              Contact Me
               <br />
               <span className="text-primary">Let me know here.</span>
             </h3>
@@ -136,7 +136,7 @@ const ContactSection = () => {
                 className="w-full px-4 py-3 rounded-lg bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all text-sm"
               />
               <textarea
-                placeholder="Tell me about your project..."
+                placeholder="Message Me"
                 rows={4}
                 required
                 value={form.message}
