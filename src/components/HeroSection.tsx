@@ -1,4 +1,4 @@
-import { ArrowRight, Linkedin, Github, Mail } from "lucide-react";
+import { ArrowRight, Linkedin } from "lucide-react";
 import profilePhoto from "@/assets/profile-photo.png";
 import DataBackground from "./DataBackground";
 
@@ -6,6 +6,15 @@ const HeroSection = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden bg-background">
       <DataBackground />
+
+      {/* Profile photo as background */}
+      <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
+        <img
+          src={profilePhoto}
+          alt="Salman Aziz Barbhuiya"
+          className="h-full max-h-[90vh] object-contain opacity-15 md:opacity-20"
+        />
+      </div>
 
       {/* Subtle gradient overlays */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_hsl(38_92%_50%/0.06)_0%,_transparent_50%)] pointer-events-none" />
@@ -22,7 +31,7 @@ const HeroSection = () => {
         {/* Main hero grid — name on left overlapping photo */}
         <div className="grid md:grid-cols-12 gap-8 items-end">
           {/* Left — Large Name */}
-          <div className="md:col-span-5 space-y-6">
+          <div className="md:col-span-7 space-y-6">
             <div className="opacity-0 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
               <h1 className="font-display text-6xl md:text-7xl lg:text-8xl font-black leading-[0.95] tracking-tight text-foreground">
                 Salman
@@ -35,41 +44,21 @@ const HeroSection = () => {
 
             {/* Social icons below name */}
             <div className="flex items-center gap-5 opacity-0 animate-fade-in-up pt-6" style={{ animationDelay: "0.5s" }}>
-              {[
-                { icon: Linkedin, href: "https://www.linkedin.com/in/salman900236/" },
-                { icon: Github, href: "#" },
-                { icon: Mail, href: "mailto:salmanwrk009@gmail.com" },
-              ].map((s, i) => (
-                <a
-                  key={i}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  <s.icon size={18} />
-                </a>
-              ))}
+              <a
+                href="https://www.linkedin.com/in/salman900236/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Linkedin size={18} />
+              </a>
             </div>
           </div>
 
-          {/* Center — Photo */}
-          <div className="md:col-span-3 opacity-0 animate-fade-in-up flex justify-center" style={{ animationDelay: "0.3s" }}>
-            <div className="relative group">
-              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-primary/20 to-transparent blur-lg opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative w-56 h-72 md:w-64 md:h-80 rounded-2xl overflow-hidden border border-border">
-                <img
-                  src={profilePhoto}
-                  alt="Salman Aziz Barbhuiya"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
-              </div>
-            </div>
-          </div>
+          {/* Center — removed, photo is now background */}
 
           {/* Right — Introduction */}
-          <div className="md:col-span-4 space-y-6 opacity-0 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
+          <div className="md:col-span-5 space-y-6 opacity-0 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
             <span className="text-xs font-mono text-muted-foreground tracking-[0.2em] uppercase">
               — Introduction
             </span>
