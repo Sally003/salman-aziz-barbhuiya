@@ -36,7 +36,7 @@ const HeroSection = () => {
             {/* Social icons below name */}
             <div className="flex items-center gap-5 opacity-0 animate-fade-in-up pt-6" style={{ animationDelay: "0.5s" }}>
               {[
-                { icon: Linkedin, href: "https://www.linkedin.com/in/salman-aziz-barbhuiya" },
+                { icon: Linkedin, href: "https://www.linkedin.com/in/salman900236/" },
                 { icon: Github, href: "#" },
                 { icon: Mail, href: "mailto:salmanwrk009@gmail.com" },
               ].map((s, i) => (
