@@ -1,4 +1,4 @@
-import { ArrowRight, Linkedin } from "lucide-react";
+import { ArrowRight, Linkedin, Github } from "lucide-react";
 import profilePhoto from "@/assets/profile-photo.png";
 import DataBackground from "./DataBackground";
 
@@ -51,6 +51,14 @@ const HeroSection = () => {
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
                 <Linkedin size={18} />
+              </a>
+              <a
+                href="https://github.com/Sally003"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Github size={18} />
               </a>
             </div>
           </div>
