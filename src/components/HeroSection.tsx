@@ -12,7 +12,7 @@ const HeroSection = () => {
         <img
           src={profilePhoto}
           alt="Salman Aziz Barbhuiya"
-          className="h-full max-h-[90vh] object-contain opacity-15 md:opacity-20"
+          className="h-full max-h-[90vh] object-contain opacity-40 md:opacity-50"
         />
       </div>
 
