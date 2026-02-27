@@ -3,23 +3,56 @@ import { Mail, Phone, MapPin, Linkedin, Send, ArrowRight } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import emailjs from "@emailjs/browser";
 import AnimatedSection from "./AnimatedSection";
+import { z } from "zod";
+
+const contactSchema = z.object({
+  name: z
+    .string()
+    .trim()
+    .min(2, "Name must be at least 2 characters")
+    .max(100, "Name must be less than 100 characters"),
+  email: z
+    .string()
+    .trim()
+    .email("Please enter a valid email address")
+    .max(255, "Email must be less than 255 characters"),
+  message: z
+    .string()
+    .trim()
+    .min(10, "Message must be at least 10 characters")
+    .max(2000, "Message must be less than 2000 characters"),
+});
 
 const ContactSection = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const [sending, setSending] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrors({});
+
+    const result = contactSchema.safeParse(form);
+    if (!result.success) {
+      const fieldErrors: Record<string, string> = {};
+      result.error.errors.forEach((err) => {
+        if (err.path[0]) fieldErrors[err.path[0] as string] = err.message;
+      });
+      setErrors(fieldErrors);
+      return;
+    }
+
+    const validated = result.data;
     setSending(true);
     try {
       await emailjs.send(
         "service_u9w9jw7",
         "template_irq873m",
         {
-          from_name: form.name,
-          from_email: form.email,
-          message: form.message,
+          from_name: validated.name,
+          from_email: validated.email,
+          message: validated.message,
         },
         "MrPw6MsIrx45LPWCZ"
       );
@@ -119,30 +152,42 @@ const ContactSection = () => {
               <span className="text-primary">Let me know here.</span>
             </h3>
             <form onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-4 max-w-2xl">
-              <input
-                type="text"
-                placeholder="What's your name?"
-                required
-                value={form.name}
-                onChange={(e) => setForm({ ...form, name: e.target.value })}
-                className="w-full px-4 py-3 rounded-lg bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all text-sm"
-              />
-              <input
-                type="email"
-                placeholder="Your email"
-                required
-                value={form.email}
-                onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className="w-full px-4 py-3 rounded-lg bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all text-sm"
-              />
-              <textarea
-                placeholder="Message Me"
-                rows={4}
-                required
-                value={form.message}
-                onChange={(e) => setForm({ ...form, message: e.target.value })}
-                className="w-full px-4 py-3 rounded-lg bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all text-sm resize-none md:col-span-2"
-              />
+              <div>
+                <input
+                  type="text"
+                  placeholder="What's your name?"
+                  required
+                  maxLength={100}
+                  value={form.name}
+                  onChange={(e) => { setForm({ ...form, name: e.target.value }); setErrors((prev) => ({ ...prev, name: "" })); }}
+                  className="w-full px-4 py-3 rounded-lg bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all text-sm"
+                />
+                {errors.name && <p className="text-xs text-destructive mt-1">{errors.name}</p>}
+              </div>
+              <div>
+                <input
+                  type="email"
+                  placeholder="Your email"
+                  required
+                  maxLength={255}
+                  value={form.email}
+                  onChange={(e) => { setForm({ ...form, email: e.target.value }); setErrors((prev) => ({ ...prev, email: "" })); }}
+                  className="w-full px-4 py-3 rounded-lg bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all text-sm"
+                />
+                {errors.email && <p className="text-xs text-destructive mt-1">{errors.email}</p>}
+              </div>
+              <div className="md:col-span-2">
+                <textarea
+                  placeholder="Message Me"
+                  rows={4}
+                  required
+                  maxLength={2000}
+                  value={form.message}
+                  onChange={(e) => { setForm({ ...form, message: e.target.value }); setErrors((prev) => ({ ...prev, message: "" })); }}
+                  className="w-full px-4 py-3 rounded-lg bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all text-sm resize-none"
+                />
+                {errors.message && <p className="text-xs text-destructive mt-1">{errors.message}</p>}
+              </div>
               <button type="submit" disabled={sending} className="btn-hero-primary w-full justify-center md:col-span-2 max-w-xs">
                 <Send size={18} /> {sending ? "Sending..." : "Send Message"}
               </button>
