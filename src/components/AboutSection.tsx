@@ -15,7 +15,7 @@ const AboutSection = () => {
         <AnimatedSection>
           <span className="text-xs font-mono text-muted-foreground tracking-[0.2em] uppercase">— About</span>
           <h2 className="font-display text-3xl md:text-4xl font-black mt-3 mb-10">
-            Who I <span className="text-primary">Am</span>
+            Who I <span className="text-primary">Am.</span>
           </h2>
         </AnimatedSection>
 
