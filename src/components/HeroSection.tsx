@@ -51,12 +51,11 @@ const HeroSection = () => {
                 <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
               </a>
               <a
-                href="/Salman_resume.pdf"
-                download
+                href="#contact"
                 className="inline-flex items-center gap-2.5 px-6 py-3 rounded-lg border border-border text-foreground text-sm font-medium hover:border-primary/50 hover:text-primary transition-all duration-300"
               >
                 <Download size={15} />
-                Download Résumé
+                Get in Touch
               </a>
             </div>
 
