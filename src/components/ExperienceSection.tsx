@@ -3,6 +3,18 @@ import AnimatedSection from "./AnimatedSection";
 
 const experiences = [
   {
+    title: "Software Engineering Technician (Web & AI)",
+    company: "GyanX – EdTech Platform",
+    period: "Mar 2026 – Jun 2026",
+    points: [
+      "Contributed to the development, maintenance, and optimization of a child-centric educational web platform, applying software engineering best practices throughout the SDLC.",
+      "Integrated AI-driven adaptive learning features, performing testing and measuring of model outputs to ensure reliability and educational accuracy.",
+      "Implemented multilingual functionality, independently troubleshooting and resolving cross-browser and localization issues to ensure seamless user access.",
+      "Collaborated with cross-functional teams to build secure application features, incorporating safeguards against unauthorized access — proactively anticipating and acting upon client security needs.",
+      "Shared technical knowledge with team members, supporting peers in applying best practices for secure and scalable development.",
+    ],
+  },
+  {
     title: "Investigation Specialist",
     company: "Amazon",
     period: "Sep 2024 – Dec 2025",
